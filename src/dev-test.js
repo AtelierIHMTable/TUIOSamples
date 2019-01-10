@@ -21,15 +21,15 @@ export default function buildNoobWork() {
 
   // Lire la doc dans un premier temps
 
-    // Créer un ImageElementWidget seulement déplaçable
+  // Créer un ImageElementWidget seulement déplaçable
 
-    // Créer un ImageElementWidget déplaçable, pivotable, et redimensionnable
+  // Créer un ImageElementWidget déplaçable, pivotable, et redimensionnable
 
-    // Créer une stack à ImageElementWidget et y ajouter les deux ImageElementWidget créés avant
+  // Créer une stack à ImageElementWidget et y ajouter les deux ImageElementWidget créés avant
 
-    // Créer un VideoElementWidget seulement déplaçable
+  // Créer un VideoElementWidget seulement déplaçable
 
-    // Créer un VideoElementWidget déplaçable, pivotable, et redimensionnable
+  // Créer un VideoElementWidget déplaçable, pivotable, et redimensionnable
 
-    // Créer une LibraryStack à VideoElementWidget et y ajouter les deux VideoElementWidget créés avant
+  // Créer une LibraryStack à VideoElementWidget et y ajouter les deux VideoElementWidget créés avant
 }

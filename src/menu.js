@@ -12,7 +12,7 @@ import VideoElementWidget from 'tuiomanager/widgets/ElementWidget/VideoElementWi
 import CircularMenu from 'tuiomanager/widgets/CircularMenu/CircularMenu';
 import LibraryStack from 'tuiomanager/widgets/Library/LibraryStack/LibraryStack';
 import MenuItem from 'tuiomanager/widgets/CircularMenu/MenuItem';
-import { buildNoobWork } from './dev-test';
+import buildNoobWork from './dev-test';
 
 let widgets = [];
 
@@ -66,7 +66,7 @@ function buildDevelopment() {
   const imageWidget5 = new ImageElementWidget(0, 0, 250, 333, 0, 2, 'assets/IMG_20150304_201145.jpg', 'B3', 'C9', '38');
   const facile = new MenuItem('Facile', '#2E7D32', '#FFF', false);
   facile.setTouchCallback(() => {
-      // Do something
+    // Do something
   });
 
   libstack.addElementWidget(imageWidget2);
@@ -75,12 +75,12 @@ function buildDevelopment() {
   libstack.addElementWidget(imageWidget5);
   const moyen = new MenuItem('Moyen', '#D84315', '#FFF', false);
   moyen.setTouchCallback(() => {
-      // Do something
+    // Do something
   });
 
   const cloud = new MenuItem('fa fa-2x fa-cloud', '#c62828', '#fff', true);
   cloud.setTouchCallback(() => {
-      // Do something
+    // Do something
   });
   const difficulties = new MenuItem('Difficultés', '#FFF', '#000', false);
   difficulties.addChild(facile);
@@ -221,7 +221,7 @@ function buildCircularMenuPuzzles() {
   const root = new MenuItem('root', '#0F0', '#0FF', false);
   root.addChild(difficulties);
   root.addChild(puzzles);
-  const circularmenu = new CircularMenu('6D', root);
+  const circularmenu = new CircularMenu('1', root);
   console.log(root);
   $('#app').append(circularmenu.domElem);
 }// buildMusic
@@ -261,7 +261,7 @@ function buildUserTest() {
   AddWidgetToScreen(imageWidget13);
   const imageWidget14 = new ImageElementWidget(40, 400, 640, 960, 50, 0.1, 'assets/user-test/14.jpg', 'B3', 'C9', '38', '6');
   AddWidgetToScreen(imageWidget14);
-//
+
   const videoWidget1 = new VideoElementWidget(200, 50, 250, 140, 180, 1, 'assets/user-test/boi.mp4', 'B3', 'C9', '38', '6', '3');
   AddWidgetToScreen(videoWidget1);
   const videoWidget2 = new VideoElementWidget(1100, 20, 250, 140, 70, 1, 'assets/user-test/crash.mp4', 'B3', 'C9', '38', '6', '3');
@@ -286,7 +286,7 @@ function buildUserTest() {
   // Stack poubelle
 }// buildUserTest
 
-export default function buildMenu() {
+export function buildMenu() {
   $('#example-container').append('<h1> TUIO Showcase </h1>');
   $('#example-container').append('<button id="development" class="menu-button"> Development </button> </br>');
   $('#example-container').append('<button id="health" class="menu-button"> Health (using ImageElementWidget) </button></br>');
@@ -318,3 +318,5 @@ export default function buildMenu() {
     buildUserTest();
   });
 }// buildMenu()
+
+export default buildMenu;

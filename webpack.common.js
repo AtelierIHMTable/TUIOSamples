@@ -1,7 +1,6 @@
 const path = require('path');
 const fs = require('fs');
 /* eslint-disable import/no-extraneous-dependencies */
-const combineLoaders = require('webpack-combine-loaders/combineLoaders');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 /* eslint-enable import/no-extraneous-dependencies */
@@ -32,6 +31,7 @@ const copyWebpackPluginInstance = new CopyWebpackPlugin(
 
 module.exports = () => (
   {
+    mode: 'development',
     devServer: {
       inline: true,
       historyApiFallback: true,
@@ -44,39 +44,33 @@ module.exports = () => (
       filename: 'index.js',
     },
     resolve: {
-      extensions: ['', '.js'],
-      root: resolvePaths,
-      fallback: resolvePaths,
+      extensions: ['.js'],
+      modules: resolvePaths,
+      enforceExtension: false,
     },
     resolveLoader: {
-      root: resolvePaths,
-      fallback: resolvePaths,
-    },
-    eslint: {
-      configFile: './.eslintrc',
+      modules: resolvePaths,
     },
     module: {
-      loaders: [
+      rules: [
         {
           test: /\.js?$/,
-          loader: combineLoaders([
+          use: [
             {
               loader: 'babel-loader',
               query: {
                 babelrc: false,
                 presets: [
-                  'es2015',
-                ].map(dep => require.resolve(`babel-preset-${dep}`)),
-                plugins: [
-                  'transform-object-rest-spread',
-                ].map(dep => require.resolve(`babel-plugin-${dep}`)),
+                  'env',
+                ].map(dep => require.resolve(`@babel/preset-${dep}`)),
               },
             },
             {
               loader: 'eslint-loader',
             },
-          ]),
-          include: includePaths
+          ],
+          include: includePaths,
+          exclude: /node_modules/,
         },
         {
           test: /\.json$/,
