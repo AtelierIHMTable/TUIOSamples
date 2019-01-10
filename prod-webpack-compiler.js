@@ -5,6 +5,7 @@ const fse = require('fs-extra');
 const getConfig = require('./webpack.common.js');
 
 const webpackConfig = getConfig();
+webpackConfig.mode = 'production';
 
 webpackConfig.output.publicPath = './';
 
@@ -17,8 +18,6 @@ if (buildPath !== __dirname) {
 const compiler = webpack(webpackConfig);
 
 webpackConfig.plugins.push(
-  new webpack.optimize.OccurrenceOrderPlugin(),
-  new webpack.optimize.DedupePlugin(),
   new webpack.optimize.UglifyJsPlugin({
     compress: {
       unused: true,
